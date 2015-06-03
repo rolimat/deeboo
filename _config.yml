@@ -1,7 +1,7 @@
 title: deeboo experiments
 description: deeboo experiments and notes for development
 
-url: http://rolimat.github.io
+url: http://rolimat.github.io/deeboo
 baseurl: "deeboo"
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
