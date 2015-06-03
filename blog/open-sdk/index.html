@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title></title>
+    <title>ESP8266 Open SDK</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -20,7 +20,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://rolimat.github.io/deeboo/">
+    <link rel="canonical" href="http://rolimat.github.io/deeboo/blog/open-sdk/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -49,7 +49,7 @@ ga('send', 'pageview');
          <nav class="nav-collapse">
              <ul class="noList">
                  
-                 <li class="element first current ">
+                 <li class="element first  ">
                      <a href="/index.html">Home</a>
                  </li> 
                  
@@ -65,38 +65,63 @@ ga('send', 'pageview');
 
    <div class="content">
       <div class="container">
-         <div class="home" id="home">
-  <ul class="posts noList">
-    
+         <div class="post">
+  
+  <h1 class="postTitle">ESP8266 Open SDK</h1>
+  <p class="meta">June 03, 2015</p>
+  
+  <p>Para el desarrollo con el chip ESP8266 voy a utilizar la toolchain <a href="https://github.com/pfalcon/esp-open-sdk" target="_blank">esp-open-sdk</a>. De esta forma, la configuración del entorno de desarrollo para el ESP8266 será más rápida, fácil e intuitiva que la forma &quot;tradicional&quot; indicada en el repositorio oficial del ESP8266. Además es muchisimo más fácil de actualizar y sustituye algunas de las librerias propietarias incluidas en la toolchain oficial por otras libres :)</p>
+
+<h2>Instalación Open SDK</h2>
+
+<h4>Dependencias</h4>
+
+<p>Antes de nada tendremos que instalar las dependecias de esp-open-sdk:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get -y install git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev-amd64 python-serial libexpat-dev dpkg-dev unzip</code></pre></div>
+
+<h4>Instalación esp-open-sdk</h4>
+
+<p>Una vez que tenemos las dependencias instaladas correctamente, pasamos a instalar el sdk. En mi caso, lo voy a instalar en /opt (como todos los programas que instalo de forma manual). El make tarda un rato en ejecutarse, en función de la máquina que tengas claro.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /opt
+sudo git clone https://github.com/pfalcon/esp-open-sdk.git
+sudo chown -R <span class="nv">$USER</span> esp-open-sdk/
+<span class="nb">cd </span>esp-open-sdk
+make <span class="nv">STANDALONE</span><span class="o">=</span>y</code></pre></div>
+
+<h4>Configuración de variables de entorno</h4>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s1">&#39;PATH=$PATH:/opt/esp-open-sdk/xtensa-lx106-elf/bin&#39;</span> &gt;&gt; ~/.profile
+<span class="nb">echo</span> <span class="s1">&#39;PATH=$PATH:/opt/esp-open-sdk/esptool&#39;</span> &gt;&gt; ~/.profile
+<span class="nb">source</span> ~/.profile</code></pre></div>
+
+<h4>Instalación ESP image tool</h4>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget -O esptool_0.0.2-1_i386.deb https://github.com/esp8266/esp8266-wiki/raw/master/deb/esptool_0.0.2-1_i386.deb
+sudo dpkg -i esptool_0.0.2-1_i386.deb
+rm esptool_0.0.2-1_i386.deb</code></pre></div>
+
+<h2>Actualización</h2>
+
+<p>Una de las grandes ventajas de utilizar esp-open-sdk es la actualización del sdk, puesto que es tan fácil como actualizar el repositorio :)</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /opt/esp-open-sdk
+make clean
+git pull
+git submodule update</code></pre></div>
+
+<p>Más info: <a href="http://www.penninkhof.com/2015/03/esp8266-open-sdk/" target="_blank">http://www.penninkhof.com/2015/03/esp8266-open-sdk/</a></p>
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+     
+      <a class="prev" href="/blog/sublime-tildes-vocales/"><span>&laquo;&nbsp;Solucionando el problema de las tildes en Sublime Text con Ubuntu</span>
       
-        <li>
-          <span class="date">June 03, 2015</span>
-          <h3><a class="post-link" href="/blog/open-sdk/">ESP8266 Open SDK</a></h3>
-          <p class="description">Para el desarrollo con el chip ESP8266 voy a utilizar la toolchain esp-open-sdk. De esta forma, la configuración del entorno de desarrollo para el ESP8266 será más rápida, fácil e intuitiva que la forma &quot;tradicional&quot; indicada en el repos...</p>
-        </li>
+    </a>
       
-    
-      
-        <li>
-          <span class="date">June 02, 2015</span>
-          <h3><a class="post-link" href="/blog/sublime-tildes-vocales/">Solucionando el problema de las tildes en Sublime Text con Ubuntu</a></h3>
-          <p class="description">Suelo usar bastante Sublime Text para el trabajo (aunque utilizo Intellij IDEA como IDE principal) y sobre todo en mis proyectos personales. El tema de las tildes es un poco problemático y en mi caso tras instalar Sublime no puedo escribir correct...</p>
-        </li>
-      
-    
-      
-    
-      
-    
-      
-    
-  </ul>
-  <!-- Pagination links -->
-  <div class="pagination">
-    
-    
-      <a href="/blog/page2/" class="next button__outline">Older Posts</a>
-    
+     
   </div>
 </div>
 
