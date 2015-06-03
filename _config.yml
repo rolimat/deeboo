@@ -4,7 +4,7 @@ description: deeboo experiments and notes for development
 url: http://rolimat.github.io
 baseurl: "/deeboo"
 paginate_path: "blog/page:num/"
-permalink: blog/:title/
+permalink: :title/
 
 markdown: redcarpet
 highlighter: pygments
