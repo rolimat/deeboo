@@ -11,8 +11,15 @@ title: Links
 	<li><a href="http://www.adafruit.com/datasheets/ESP8266_Specifications_English.pdf">ESP8266 datasheet</a></li>
   </ul>
 
-  <h2>Other sites</h2>
+  <h2>Otros sites sobre ESP8266</h2>
   <ul>
     <li><a href="http://iot-playground.com">IoT playground: multitud de ejemplos y proyectos con ESP8266 y Arduino IDE</a></li>
+  </ul>
+
+  <h2>Tutoriales de electrónica</h2>
+  <ul>
+  	<li><a href="https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering">Tutorial soldadura Sparkfun</a></li>
+  	<li><a href="https://www.youtube.com/watch?v=ph9pbs6fk90">Videotutorial líquido revelador placa pcb con sosa cáustica</a></li>
+  	<li><a href="https://www.youtube.com/watch?v=Klj3Zqn3NzE">Videotutorial fabricación PCB</a></li>
   </ul>
 </div>
