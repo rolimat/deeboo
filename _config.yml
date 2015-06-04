@@ -17,8 +17,6 @@ navigation:
    url: /links.html
  - title: About
    url: /about.html
- #- title: Contact
-  # url: /contact
 
 social:
    github: rolimat
