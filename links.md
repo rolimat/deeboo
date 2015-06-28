@@ -17,6 +17,11 @@ title: Links
     <li><a href="http://iot-playground.com">IoT playground: multitud de ejemplos y proyectos con ESP8266 y Arduino IDE</a></li>
   </ul>
 
+  <h2>NodeMCU6</h2>
+  <ul>
+    <li><a href="http://lua-users.org/wiki">Wiki Lua Users: addons, ejemplos, ....</a></li>
+  </ul>
+
   <h2>Tutoriales de electrónica</h2>
   <ul>
   	<li><a href="https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering">Tutorial soldadura Sparkfun</a></li>
